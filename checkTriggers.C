@@ -1,35 +1,34 @@
-// root -l aTGCs_test.C Lepton_isTightMuon_cut_Tight_HWWW  Lepton_isTightMuon_cut_Tight_HWWW
-#include "checkTriggers.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <TLorentzVector.h>
+#include "TMath.h"
+using namespace std;
 
 
-void checkTriggers() { 
+void checkTriggers(TString sample) { 
 
-  TChain* tree_signal = new TChain("Events");
+  // INPUT
+  //------------------------------------------------------------------------------------------------
+
+  TChain* tree = new TChain("Events");
   TChain* tree_ww = new TChain("Events");
   
   TString myFolder = "/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_nAOD_v1_Full2017/MCl1loose2017__MCformulas/";
- 
- TString file_signal = "";
- TString file_ww = "";
-
- 
- file_signal = myFolder + "nanoLatino_ZprimeToMuMu_M-5000__part0.root";
- tree_signal->Add(file_signal);
- 
- file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part0.root";
- tree_ww->Add(file_ww);
- file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part1.root";
- tree_ww->Add(file_ww);
- file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part2.root";
- tree_ww->Add(file_ww);
+  
+  TString file = "";
+  
+  file = myFolder + sample;
+  tree->Add(file);
 
 
+  // HISTOGRAMS
+  //------------------------------------------------------------------------------------------------
   TH1F* h_drll_Mu50 = new TH1F("h_drll_Mu50","h_drll_Mu50",100,0,2*TMath::Pi());
   TH1F* h_drll_IsoMu27 = new TH1F("h_drll_IsoMu27","h_drll_IsoMu27",100,0,2*TMath::Pi());
-  TH1F* h_met_Mu50 = new TH1F("h_met_Mu50","h_met_Mu50",100,0,300);
 
 
-  // Cuts
+  // CUTS
   //------------------------------------------------------------------------------------------------
   TCut TwoLep = "nLepton == 2 && (Lepton_pdgId[0] * Lepton_pdgId[1]) == -13*13 && abs(Lepton_eta[0]) < 2.4 && abs(Lepton_eta[1]) < 2.4 && Lepton_isTightMuon_cut_Tight_HWWW[0] > 0.5 && Lepton_isTightMuon_cut_Tight_HWWW[1] > 0.5 && Lepton_pt[0] > 51. && Lepton_pt[1] > 20.";
   TCut Trig_Mu50 = "HLT_Mu50 == 1";
@@ -39,17 +38,15 @@ void checkTriggers() {
   // FILL
   //------------------------------------------------------------------------------------------------
   TString deltaR = "sqrt(pow(abs(Lepton_eta[0]-Lepton_eta[1]),2) + pow(abs(Lepton_phi[0]-Lepton_phi[1]), 2))";
-  TCanvas* c1 = new TCanvas("c1", "c1");
 
-  tree_signal->Draw(deltaR +" >> h_drll_Mu50", TwoLep && Trig_Mu50);
-  tree_signal->Draw(deltaR +" >> h_drll_IsoMu27", TwoLep && Trig_IsoMu27);
+  tree->Draw(deltaR +" >> h_drll_Mu50", TwoLep && Trig_Mu50);
+  tree->Draw(deltaR +" >> h_drll_IsoMu27", TwoLep && Trig_IsoMu27);
   
 
+  // OUTPUT
+  //------------------------------------------------------------------------------------------------
 
-
-
-
-  TFile* root_output = new TFile("output.root", "recreate");
+  TFile* root_output = new TFile("output_" + sample, "recreate");
   h_drll_IsoMu27->Write();
   h_drll_Mu50->Write();
   root_output->Close();

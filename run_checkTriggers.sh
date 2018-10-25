@@ -1,0 +1,1 @@
+root -l -q -b "checkTriggers.C(\"nanoLatino_ZprimeToMuMu_M-5000__part0.root\")"
