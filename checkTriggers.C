@@ -4,25 +4,24 @@
 
 void checkTriggers() { 
 
-
   TChain* tree_signal = new TChain("Events");
   TChain* tree_ww = new TChain("Events");
-
+  
   TString myFolder = "/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_nAOD_v1_Full2017/MCl1loose2017__MCformulas/";
+ 
+ TString file_signal = "";
+ TString file_ww = "";
 
-  TString file_signal = "";
-  TString file_ww = "";
-
-
-  file_signal = myFolder + "nanoLatino_ZprimeToMuMu_M-5000__part0.root";
-  tree_signal->Add(file_signal);
-
-  file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part0.root";
-  tree_ww->Add(file_ww);
-  file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part1.root";
-  tree_ww->Add(file_ww);
-  file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part2.root";
-  tree_ww->Add(file_ww);
+ 
+ file_signal = myFolder + "nanoLatino_ZprimeToMuMu_M-5000__part0.root";
+ tree_signal->Add(file_signal);
+ 
+ file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part0.root";
+ tree_ww->Add(file_ww);
+ file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part1.root";
+ tree_ww->Add(file_ww);
+ file_ww = myFolder + "nanoLatino_WWTo2L2Nu__part2.root";
+ tree_ww->Add(file_ww);
 
 
   TH1F* h_drll_Mu50 = new TH1F("h_drll_Mu50","h_drll_Mu50",100,0,2*TMath::Pi());

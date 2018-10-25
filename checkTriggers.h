@@ -6,7 +6,6 @@
 #include "TMath.h"
 using namespace std;
 
-
 void checkTriggers() {
   
   const Double_t MUON_MASS     = 0.106;     // [GeV]
