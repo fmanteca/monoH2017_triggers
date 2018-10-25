@@ -10,9 +10,7 @@ void checkTriggers(TString sample) {
 
   // INPUT
   //------------------------------------------------------------------------------------------------
-
   TChain* tree = new TChain("Events");
-  TChain* tree_ww = new TChain("Events");
   
   TString myFolder = "/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_nAOD_v1_Full2017/MCl1loose2017__MCformulas/";
   
@@ -45,7 +43,6 @@ void checkTriggers(TString sample) {
 
   // OUTPUT
   //------------------------------------------------------------------------------------------------
-
   TFile* root_output = new TFile("output_" + sample, "recreate");
   h_drll_IsoMu27->Write();
   h_drll_Mu50->Write();
