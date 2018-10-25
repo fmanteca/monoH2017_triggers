@@ -11,11 +11,9 @@ void checkTriggers(TString sample) {
   // INPUT
   //------------------------------------------------------------------------------------------------
   TChain* tree = new TChain("Events");
-  
   TString myFolder = "/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_nAOD_v1_Full2017/MCl1loose2017__MCformulas/";
-  
+
   TString file = "";
-  
   file = myFolder + sample;
   tree->Add(file);
 
@@ -47,7 +45,5 @@ void checkTriggers(TString sample) {
   h_drll_IsoMu27->Write();
   h_drll_Mu50->Write();
   root_output->Close();
-
-
 
 }
