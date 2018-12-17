@@ -229,6 +229,37 @@ void plotter(Int_t Nsame, TString variable, TString channel, TString sample1, TS
     h_1->Draw();
     h_1->SetLineColor(4);
     h_1->SetLineWidth(2);
+    // SET MAX
+    if(variable == "drll" && channel == "ee"){
+      h_1->SetMaximum(140);
+    }else if(variable == "drll" && channel == "em"){
+      h_1->SetMaximum(300);
+    }else if(variable == "drll" && channel == "mm"){
+      h_1->SetMaximum(130);
+    }else if(variable == "drll" && channel == "inc"){
+      h_1->SetMaximum(560);
+    }
+
+    if(variable == "pt1" && channel == "ee"){
+      h_1->SetMaximum(70);
+    }else if(variable == "pt1" && channel == "em"){
+      h_1->SetMaximum(160);
+    }else if(variable == "pt1" && channel == "mm"){
+      h_1->SetMaximum(110);
+    }else if(variable == "pt1" && channel == "inc"){
+      h_1->SetMaximum(320);
+    }
+
+    if(variable == "pt2" && channel == "ee"){
+      h_1->SetMaximum(80);
+    }else if(variable == "pt2" && channel == "em"){
+      h_1->SetMaximum(190);
+    }else if(variable == "pt2" && channel == "mm"){
+      h_1->SetMaximum(120);
+    }else if(variable == "pt2" && channel == "inc"){
+      h_1->SetMaximum(380);
+    }
+
 
     h_2->Draw("SAME HIST");
     h_2->SetLineColor(2);
