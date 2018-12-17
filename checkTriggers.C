@@ -15,7 +15,7 @@ void checkTriggers(TString sample) {
   TString myFolder = "/eos/cms/store/group/phys_muon/fernanpe/MonoH/Fall2017_nAOD_v1_Full2017v2/MCl1loose2017__MCl1loose2017Pedro/";
 
   TString file = "";
-  file = myFolder + sample;
+  file = myFolder + sample + ".root";
   tree->Add(file);
 
 
@@ -48,8 +48,6 @@ void checkTriggers(TString sample) {
   TH1F* h_pt2_inc_new = new TH1F("h_pt2_inc_new","h_pt2_inc_new",100,0,300);
 
 
-
-
   // CUTS
   //------------------------------------------------------------------------------------------------
   TCut TwoLep = "nLepton>=2 && abs(Lepton_eta[0]) < 2.4 && abs(Lepton_eta[1]) < 2.4 && Alt$(Lepton_pt[2],0)<10. && (Lepton_isTightElectron_mvaFall17Iso_WP90[0]>0.5 || Lepton_isTightMuon_cut_Tight_HWWW[0]>0.5) && (Lepton_isTightElectron_mvaFall17Iso_WP90[1]>0.5 || Lepton_isTightMuon_cut_Tight_HWWW[1]>0.5)";
@@ -73,7 +71,6 @@ void checkTriggers(TString sample) {
   TCut Trig_all_latino = Trig_SingleMu_latino || Trig_SingleEle_latino || Trig_DoubleEle_latino || Trig_DoubleMu_latino || Trig_MuEle_latino;
 
 
-
   // FILL
   //------------------------------------------------------------------------------------------------
   TString deltaR = "sqrt(pow(abs(Lepton_eta[0]-Lepton_eta[1]),2) + pow(abs(Lepton_phi[0]-Lepton_phi[1]), 2))";
@@ -91,12 +88,23 @@ void checkTriggers(TString sample) {
   tree->Draw("Lepton_pt[0] >> h_pt1_inc_latino", TwoLep && Trig_all_latino && inc);
   tree->Draw("Lepton_pt[1] >> h_pt2_inc_latino", TwoLep && Trig_all_latino && inc);
 
-
+  tree->Draw(deltaR +" >> h_drll_ee_new", TwoLep && Trig_all_new && ee);
+  tree->Draw("Lepton_pt[0] >> h_pt1_ee_new", TwoLep && Trig_all_new && ee);
+  tree->Draw("Lepton_pt[1] >> h_pt2_ee_new", TwoLep && Trig_all_new && ee);
+  tree->Draw(deltaR +" >> h_drll_em_new", TwoLep && Trig_all_new && em);
+  tree->Draw("Lepton_pt[0] >> h_pt1_em_new", TwoLep && Trig_all_new && em);
+  tree->Draw("Lepton_pt[1] >> h_pt2_em_new", TwoLep && Trig_all_new && em);
+  tree->Draw(deltaR +" >> h_drll_mm_new", TwoLep && Trig_all_new && mm);
+  tree->Draw("Lepton_pt[0] >> h_pt1_mm_new", TwoLep && Trig_all_new && mm);
+  tree->Draw("Lepton_pt[1] >> h_pt2_mm_new", TwoLep && Trig_all_new && mm);
+  tree->Draw(deltaR +" >> h_drll_inc_new", TwoLep && Trig_all_new && inc);
+  tree->Draw("Lepton_pt[0] >> h_pt1_inc_new", TwoLep && Trig_all_new && inc);
+  tree->Draw("Lepton_pt[1] >> h_pt2_inc_new", TwoLep && Trig_all_new && inc);
   
 
   // OUTPUT
   //------------------------------------------------------------------------------------------------
-  TFile* root_output = new TFile("output.root", "recreate");
+  TFile* root_output = new TFile("output_" + sample + ".root", "recreate");
   h_drll_ee_latino->Write();
   h_pt1_ee_latino->Write();
   h_pt2_ee_latino->Write();
