@@ -21,31 +21,31 @@ void checkTriggers(TString sample) {
 
   // HISTOGRAMS
   //------------------------------------------------------------------------------------------------
-  TH1F* h_drll_ee_latino = new TH1F("h_drll_ee_latino","h_drll_ee_latino",100,0,2*TMath::Pi());
-  TH1F* h_pt1_ee_latino = new TH1F("h_pt1_ee_latino","h_pt1_ee_latino",100,0,500);
-  TH1F* h_pt2_ee_latino = new TH1F("h_pt2_ee_latino","h_pt2_ee_latino",100,0,300);
-  TH1F* h_drll_em_latino = new TH1F("h_drll_em_latino","h_drll_em_latino",100,0,2*TMath::Pi());
-  TH1F* h_pt1_em_latino = new TH1F("h_pt1_em_latino","h_pt1_em_latino",100,0,500);
-  TH1F* h_pt2_em_latino = new TH1F("h_pt2_em_latino","h_pt2_em_latino",100,0,300);
-  TH1F* h_drll_mm_latino = new TH1F("h_drll_mm_latino","h_drll_mm_latino",100,0,2*TMath::Pi());
-  TH1F* h_pt1_mm_latino = new TH1F("h_pt1_mm_latino","h_pt1_mm_latino",100,0,500);
-  TH1F* h_pt2_mm_latino = new TH1F("h_pt2_mm_latino","h_pt2_mm_latino",100,0,300);
-  TH1F* h_drll_inc_latino = new TH1F("h_drll_inc_latino","h_drll_inc_latino",100,0,2*TMath::Pi());
-  TH1F* h_pt1_inc_latino = new TH1F("h_pt1_inc_latino","h_pt1_inc_latino",100,0,500);
-  TH1F* h_pt2_inc_latino = new TH1F("h_pt2_inc_latino","h_pt2_inc_latino",100,0,300);
+  TH1F* h_drll_ee_latino = new TH1F("h_drll_ee_latino","h_drll_ee_latino",50,0,TMath::Pi());
+  TH1F* h_pt1_ee_latino = new TH1F("h_pt1_ee_latino","h_pt1_ee_latino",50,0,500);
+  TH1F* h_pt2_ee_latino = new TH1F("h_pt2_ee_latino","h_pt2_ee_latino",50,0,300);
+  TH1F* h_drll_em_latino = new TH1F("h_drll_em_latino","h_drll_em_latino",50,0,TMath::Pi());
+  TH1F* h_pt1_em_latino = new TH1F("h_pt1_em_latino","h_pt1_em_latino",50,0,500);
+  TH1F* h_pt2_em_latino = new TH1F("h_pt2_em_latino","h_pt2_em_latino",50,0,300);
+  TH1F* h_drll_mm_latino = new TH1F("h_drll_mm_latino","h_drll_mm_latino",50,0,TMath::Pi());
+  TH1F* h_pt1_mm_latino = new TH1F("h_pt1_mm_latino","h_pt1_mm_latino",50,0,500);
+  TH1F* h_pt2_mm_latino = new TH1F("h_pt2_mm_latino","h_pt2_mm_latino",50,0,300);
+  TH1F* h_drll_inc_latino = new TH1F("h_drll_inc_latino","h_drll_inc_latino",50,0,TMath::Pi());
+  TH1F* h_pt1_inc_latino = new TH1F("h_pt1_inc_latino","h_pt1_inc_latino",50,0,500);
+  TH1F* h_pt2_inc_latino = new TH1F("h_pt2_inc_latino","h_pt2_inc_latino",50,0,300);
 
-  TH1F* h_drll_ee_new = new TH1F("h_drll_ee_new","h_drll_ee_new",100,0,2*TMath::Pi());
-  TH1F* h_pt1_ee_new = new TH1F("h_pt1_ee_new","h_pt1_ee_new",100,0,500);
-  TH1F* h_pt2_ee_new = new TH1F("h_pt2_ee_new","h_pt2_ee_new",100,0,300);
-  TH1F* h_drll_em_new = new TH1F("h_drll_em_new","h_drll_em_new",100,0,2*TMath::Pi());
-  TH1F* h_pt1_em_new = new TH1F("h_pt1_em_new","h_pt1_em_new",100,0,500);
-  TH1F* h_pt2_em_new = new TH1F("h_pt2_em_new","h_pt2_em_new",100,0,300);
-  TH1F* h_drll_mm_new = new TH1F("h_drll_mm_new","h_drll_mm_new",100,0,2*TMath::Pi());
-  TH1F* h_pt1_mm_new = new TH1F("h_pt1_mm_new","h_pt1_mm_new",100,0,500);
-  TH1F* h_pt2_mm_new = new TH1F("h_pt2_mm_new","h_pt2_mm_new",100,0,300);
-  TH1F* h_drll_inc_new = new TH1F("h_drll_inc_new","h_drll_inc_new",100,0,2*TMath::Pi());
-  TH1F* h_pt1_inc_new = new TH1F("h_pt1_inc_new","h_pt1_inc_new",100,0,500);
-  TH1F* h_pt2_inc_new = new TH1F("h_pt2_inc_new","h_pt2_inc_new",100,0,300);
+  TH1F* h_drll_ee_new = new TH1F("h_drll_ee_new","h_drll_ee_new",50,0,TMath::Pi());
+  TH1F* h_pt1_ee_new = new TH1F("h_pt1_ee_new","h_pt1_ee_new",50,0,500);
+  TH1F* h_pt2_ee_new = new TH1F("h_pt2_ee_new","h_pt2_ee_new",50,0,300);
+  TH1F* h_drll_em_new = new TH1F("h_drll_em_new","h_drll_em_new",50,0,TMath::Pi());
+  TH1F* h_pt1_em_new = new TH1F("h_pt1_em_new","h_pt1_em_new",50,0,500);
+  TH1F* h_pt2_em_new = new TH1F("h_pt2_em_new","h_pt2_em_new",50,0,300);
+  TH1F* h_drll_mm_new = new TH1F("h_drll_mm_new","h_drll_mm_new",50,0,TMath::Pi());
+  TH1F* h_pt1_mm_new = new TH1F("h_pt1_mm_new","h_pt1_mm_new",50,0,500);
+  TH1F* h_pt2_mm_new = new TH1F("h_pt2_mm_new","h_pt2_mm_new",50,0,300);
+  TH1F* h_drll_inc_new = new TH1F("h_drll_inc_new","h_drll_inc_new",50,0,TMath::Pi());
+  TH1F* h_pt1_inc_new = new TH1F("h_pt1_inc_new","h_pt1_inc_new",50,0,500);
+  TH1F* h_pt2_inc_new = new TH1F("h_pt2_inc_new","h_pt2_inc_new",50,0,300);
 
 
   // CUTS
