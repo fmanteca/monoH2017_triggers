@@ -32,7 +32,7 @@ void getEff_and_plot(TString variable){
       pEff_mc = new TEfficiency(*h_pass_mc,*h_total_mc);
     }
 
-  TCanvas* c1 = new TCanvas("","",1000,900);
+  TCanvas* c1 = new TCanvas("","",1200,900);
 
 
   pEff_data->SetTitle(";" + variable + ";Efficiency");
@@ -59,7 +59,7 @@ void getEff_and_plot(TString variable){
     graph->SetMinimum(0.2);
     graph->SetMaximum(1.0); 
   }else{
-    graph->SetMinimum(0.6);
+    graph->SetMinimum(0.7);
     graph->SetMaximum(1.0); 
   }
   gPad->Update(); 

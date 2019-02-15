@@ -79,8 +79,8 @@ void doOrthogonalMethod(TString data_mc, TString variable){
 
   }else if(variable == "drll"){
 
-    const Int_t nbins = 9;
-    Float_t edges[nbins+1]={0.,0.4,0.8,1.2,1.6,2.0,2.5,3.0,3.5,5.0};  
+    const Int_t nbins = 12;
+    Float_t edges[nbins+1]={0.,0.4,0.8,1.2,1.6,2.0,2.5,3.0,3.5,4.0,4.5,5.0,6.25};  
 
     TH1D* h_pass = new TH1D("h_pass", "h_pass", nbins, edges);
     TH1D* h_total = new TH1D("h_total", "h_total", nbins, edges);
