@@ -32,7 +32,7 @@ void getEff_and_plot(TString variable){
       pEff_mc = new TEfficiency(*h_pass_mc,*h_total_mc);
     }
 
-  TCanvas* c1 = new TCanvas("","",1200,900);
+  TCanvas* c1 = new TCanvas("","",800,1200);
 
 
   pEff_data->SetTitle(";" + variable + ";Efficiency");
