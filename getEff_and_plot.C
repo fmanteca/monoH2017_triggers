@@ -32,7 +32,8 @@ void getEff_and_plot(TString variable){
       pEff_mc = new TEfficiency(*h_pass_mc,*h_total_mc);
     }
 
-  TCanvas* c1 = new TCanvas("","",1000,800);
+  TCanvas* c1 = new TCanvas("","",1000,900);
+
 
   pEff_data->SetTitle(";" + variable + ";Efficiency");
   pEff_data->SetLineWidth(3);
@@ -45,10 +46,23 @@ void getEff_and_plot(TString variable){
 
 
 
-  TLegend *legend1 = new TLegend(0.68,0.45,0.82,0.55);
+  TLegend *legend1 = new TLegend(0.68,0.25,0.82,0.35);
   legend1->AddEntry(pEff_data, "DATA","l");
   legend1->AddEntry(pEff_mc, "MC","l");
   legend1->Draw();
+
+  //Change axis limits...
+
+  gPad->Update(); 
+  auto graph = pEff_data->GetPaintedGraph(); 
+  if(variable == "pt1"){
+    graph->SetMinimum(0.2);
+    graph->SetMaximum(1.0); 
+  }else{
+    graph->SetMinimum(0.6);
+    graph->SetMaximum(1.0); 
+  }
+  gPad->Update(); 
 
   c1->SaveAs("/afs/cern.ch/user/f/fernanpe/www/190215_TriggerEff_orthogonalMethod/EfficiencyPlot_" + variable + ".png");
   //  pEff->Write();
